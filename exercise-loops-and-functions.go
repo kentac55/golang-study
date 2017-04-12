@@ -7,7 +7,7 @@ import (
 
 // 計算(なんとfloat64には^が使えない)
 func getNext(input float64, target float64) float64 {
-	return input - (input*input-target)/(input*2)
+	return input - (input * input - target) / (input * 2)
 }
 
 // 終了判定
