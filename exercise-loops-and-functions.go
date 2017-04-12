@@ -38,7 +38,7 @@ func Sqrt(x float64, tryNum int) float64 {
 
 	if x == 0 {
 		// 0の場合は正常な値が出ない
-		Println(0)
+		println(0)
 		return 0.0
 	} else if x < 0 {
 		// xが負の数のとき
