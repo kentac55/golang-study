@@ -9,9 +9,9 @@ import (
 func WordCount(s string) map[string]int {
 	resMap := make(map[string]int)
 	for _, v := range strings.Fields(s) {
-		elem, ok := resMap[v]
+		_, ok := resMap[v]
 		if ok {
-			resMap[v] = elem + 1
+			resMap[v]++
 		} else {
 			resMap[v] = 1
 		}
