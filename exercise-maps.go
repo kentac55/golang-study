@@ -7,14 +7,13 @@ import (
 )
 
 func WordCount(s string) map[string]int {
-	wordsSlice := strings.Fields(s)
 	resMap := make(map[string]int)
-	for i, v := range wordsSlice {
+	for _, v := range strings.Fields(s) {
 		elem, ok := resMap[v]
 		if ok {
-			resMap[wordsSlice[i]] = elem + 1
+			resMap[v] = elem + 1
 		} else {
-			resMap[wordsSlice[i]] = 1
+			resMap[v] = 1
 		}
 	}
 	return resMap
