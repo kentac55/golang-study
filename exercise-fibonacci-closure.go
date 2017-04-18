@@ -5,9 +5,11 @@ import "fmt"
 func fibonacci() func() int {
 	a := 0
 	b := 1
+	sum := 0
 	return func() int {
-		b = a + b
-		a = b - a
+		sum = a + b
+		a = b
+		b = sum
 		return b - a
 	}
 }
