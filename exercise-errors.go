@@ -14,8 +14,8 @@ func calcNextNum(input float64, target float64) float64 {
 	return input - (input*input-target)/(input*2)
 }
 
-func isFinished(current float64, past1stNum float64, past2ndNum float64) bool {
-	if current == past1stNum || current == past2ndNum {
+func isFinished(curNum float64, a float64, b float64) bool {
+	if curNum == a || curNum == b {
 		return true
 	}
 	return false
@@ -28,19 +28,15 @@ func Sqrt(x float64) (float64, error) {
 	}
 
 	var (
-		nextNum      = 1.0
-		past1stNum   = -1.0
-		past2ndNum   = -1.0
-		maxTryCounts = 100
+		nextNum = 1.0
+		a       = -1.0
+		b       = -1.0
 	)
 
-	for i := 1; !isFinished(nextNum, past1stNum, past2ndNum) && i <= maxTryCounts; i++ {
-		past2ndNum = past1stNum
-		past1stNum = nextNum
+	for i := 1; !isFinished(nextNum, a, b); i++ {
+		b = a
+		a = nextNum
 		nextNum = calcNextNum(nextNum, x)
-		if i == maxTryCounts {
-			fmt.Println("reached maxTryCounts.")
-		}
 	}
 	return nextNum, nil
 }
