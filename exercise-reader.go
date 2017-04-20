@@ -5,10 +5,10 @@ import "golang.org/x/tour/reader"
 type MyReader struct{}
 
 func (r MyReader) Read(b []byte) (n int, err error) {
-	for {
-		b = append(b, 65)
+	for i := range b {
+		b[i] = 'A'
 	}
-	return cap(b), nil
+	return len(b), nil
 }
 
 func main() {
